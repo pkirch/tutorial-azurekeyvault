@@ -23,6 +23,11 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName c
 
 Get-AzureRmKeyVault -VaultName $keyVaultName
 
-# Remember keys for service accounts:
-# sysadmin: key_sysadmin
-# dbengine: key_dbengine
+# Remember client IDs and keys for service accounts:
+# sysadmin #
+# client ID:
+# key:
+
+# dbengine #
+# client ID:
+# key:
