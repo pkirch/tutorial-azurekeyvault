@@ -287,9 +287,9 @@ Dazu verwenden wir Premium Storage bei einer DS-VM, die bei Größe P10 aktuell 
 Speicher wird tagesgenau berechnet, 
 womit wir bei dem Tutorial von 2,5h innerhalb eines Tages bei ca. €0,6097 Kosten liegen.
 
-Quellen: Preisübersicht: 
-https://azure.microsoft.com/de-de/pricing/details/virtual-machines/#Sql  
-https://azure.microsoft.com/de-de/pricing/details/storage/
+Preisübersicht:  
+* https://azure.microsoft.com/de-de/pricing/details/virtual-machines/#Sql  
+* https://azure.microsoft.com/de-de/pricing/details/storage/
 
 ## Weiterführende Informationen
 
