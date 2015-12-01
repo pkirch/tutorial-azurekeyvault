@@ -1,5 +1,5 @@
 # Tutorial für PASS Camp 2015
-## Datenbankverschlüsselung von SQL Server 2014 mit Azure Key Vault
+## Datenbankverschlüsselung von SQL Server 2014 mit Azure Key Vault
 
 ### Übung 1: SQL Server VM erstellen
 
