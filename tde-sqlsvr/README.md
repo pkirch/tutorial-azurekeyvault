@@ -1,6 +1,18 @@
 # Tutorial für PASS Camp 2015
 ## Datenbankverschlüsselung von SQL Server 2014 mit Azure Key Vault
 
+Dieses Tutorial beinhaltet folgende Übungen:
+
+* Übung 1: SQL Server VM erstellen
+* Übung 2: Azure PowerShell 1.0 (preview) 
+* Übung 3: Dienstkonten im Azure AD erstellen
+* Übung 4: Azure Key Vault erstellen & konfigurieren
+* Übung 5: SQL Server Connector installieren
+* Übung 6: SQL Server konfigurieren, Azure Key Vault als EKM Provider zu nutzen
+* Übung 7: Master Key konfigurieren
+* Übung 8: Login und Credentials für die DB Engine konfigurieren
+* Übung 9: Transparente Datenbankverschlüsselung konfigurieren
+
 ### Übung 1: SQL Server VM erstellen
 
 Wir starten das Tutorial mit der Bereitstellung einer VM mit dem SQL Server, 
