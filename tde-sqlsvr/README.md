@@ -9,7 +9,7 @@ Während der Bereitstellung können wir dann bereits mit anderen Aufgaben fortfa
 
 Zuerst erstellen wir uns eine VM mit SQL Server über das **neue Portal**. 
 Wir verwenden das neue Portal, da wir für unsere SQL Server VM eine DS-Maschine erstellen möchte, 
-welche nur über das neue Portal auswählbar ist. **[Nachrechnen, was das für das Tutorial kostet. ]**
+welche nur über das neue Portal auswählbar ist.
 
 #### Schritt 1: Vorlage auswählen
 
