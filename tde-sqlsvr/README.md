@@ -4,7 +4,7 @@
 Dieses Tutorial beinhaltet folgende Übungen:
 
 * Übung 1: SQL Server VM erstellen
-* Übung 2: Azure PowerShell 1.0 (preview) 
+* Übung 2: Azure PowerShell 1.0 (preview) installieren
 * Übung 3: Dienstkonten im Azure AD erstellen
 * Übung 4: Azure Key Vault erstellen & konfigurieren
 * Übung 5: SQL Server Connector installieren
@@ -97,7 +97,7 @@ URLs und URIs akzeptiert werden.
 
 #### Schritt 4: Neue Anwendung fertig erstellt
 
-Am Ende sollte wie im folgenden Beispiel zwei neue Anwendungen im Azure AD gelistet sein.
+Am Ende sollten wie im folgenden Beispiel zwei neue Anwendungen im Azure AD gelistet sein.
 
 <img src="images/create_aad_application_ready.png"/>
 
@@ -138,7 +138,7 @@ Die Beispieldateien werden standardmäßig in den folgenden Pfad installiert:
 
 Wir öffnen die Beispieldatei 'Setup Credentials.sql'.
 
-<pre><code>
+<code><pre>
 USE master;
 CREATE CREDENTIAL sysadmin_ekm_cred 
     WITH IDENTITY = 'ContosoKeyVault', 
@@ -148,12 +148,12 @@ FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov
 -- Add the credential to the SQL Server administrators domain login 
 ALTER LOGIN [<domain>/<login>]
 ADD CREDENTIAL sysadmin_ekm_cred;
-</code></pre>
+</pre></code>
 
 Folgende Anpassungen müssen vorgenommen werden.
 
-1. IDENTITY muss auf den Namen des erstellten Azure Key Vaults gesetzt werden.
-2. SECRET besteht auf der Client ID (ohne Bindestriche!) und in direktem Anschluss dem Key.
+1. IDENTITY muss auf den Namen des erstellten Azure Key Vaults gesetzt werden.  
+2. SECRET besteht auf der Client ID (ohne Bindestriche!) und in direktem Anschluss dem Key.  
 3. Der Login muss auf das Konto gesetzt werden, das Admin-Berechtigungen besitzt.
 
 Nach diesen Anpassungen die Abfrage ausführen.
