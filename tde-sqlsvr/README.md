@@ -107,7 +107,8 @@ Kopieren zur Verfügung.
 ### Übung 4: Azure Key Vault erstellen & konfigurieren
 
 Eine PowerShell-Datei mit den wichtigsten Schritten ist hier im Repository zu finden:  
-[Create-KeyVault](Create-KeyVault.ps1)
+[Create-KeyVault](Create-KeyVault.ps1) 
+[Download](https://raw.githubusercontent.com/pkirch/tutorial-azurekeyvault/master/tde-sqlsvr/Create-KeyVault.ps1)
 
 ### Übung 5: SQL Server Connector installieren
 
