@@ -87,7 +87,7 @@ URLs und URIs akzeptiert werden.
 
 Am Ende sollte wie im folgenden Beispiel zwei neue Anwendungen im Azure AD gelistet sein.
 
-<img src="images/create_aad_add_application_ready.png"/>
+<img src="images/create_aad_application_ready.png"/>
 
 #### Schritt 5: Client IDs und Keys der Dienstkonsten
 
@@ -109,7 +109,7 @@ Kopieren zur Verfügung.
 Eine PowerShell-Datei mit den wichtigsten Schritten ist hier im Repository zu finden:  
 [Create-KeyVault](Create-KeyVault.ps1)
 
-### Übung 4: SQL Server Connector installieren
+### Übung 5: SQL Server Connector installieren
 
 Auf dem Server muss der SQL Server Connector für Azure Key Vault installiert werden.
 
@@ -121,11 +121,11 @@ Wichtig für dieses Tutorial: bitte bei der Installation die Beispieldateien mit
 Die Beispieldateien werden standardmäßig in den folgenden Pfad installiert:  
 <pre>C:\Program Files\SQL Server Connector for Microsoft Azure Key Vault\Samples</pre>
 
-### Übung 5: SQL Server konfigurieren, Azure Key Vault als EKM Provider zu nutzen
+### Übung 6: SQL Server konfigurieren, Azure Key Vault als EKM Provider zu nutzen
 
 Wir öffnen die Beispieldatei 'Setup Credentials.sql'.
 
-<pre>
+<pre><code>
 USE master;
 CREATE CREDENTIAL sysadmin_ekm_cred 
     WITH IDENTITY = 'ContosoKeyVault', 
@@ -135,7 +135,7 @@ FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov
 -- Add the credential to the SQL Server administrators domain login 
 ALTER LOGIN [<domain>/<login>]
 ADD CREDENTIAL sysadmin_ekm_cred;
-</pre>
+</code></pre>
 
 Folgende Anpassungen müssen vorgenommen werden.
 
@@ -145,7 +145,7 @@ Folgende Anpassungen müssen vorgenommen werden.
 
 Nach diesen Anpassungen die Abfrage ausführen.
 
-### Übung 6: Master Key konfigurieren
+### Übung 7: Master Key konfigurieren
 
 Wir öffnen die Beispieldatei 'TDE Sample.sql' und kopieren nur den ersten Block (inkl. dem USE-Statement).
 
@@ -163,7 +163,7 @@ CREATE ASYMMETRIC KEY TDE_KEY
 
 Dieses Statement ändern wir so ab, dass ein neuer Schlüssel im Azure Key Vault erstellt wird.
 
-1. Den Namen des Schlüssels kann man ändern, muss es aber nicht.
+1. Den Namen des Schlüssels kann man ändern, muss man aber nicht.
 2. Wir entfernen die Option CREATION_DISPOSITION oder setzen ihn auf den Standardwert 'CREATE_NEW'.
 3. Wir fügen die Option ALGORITHM hinzu und setzen den Wert auf RSA_2048.
 
@@ -177,7 +177,7 @@ CREATE ASYMMETRIC KEY TDE_KEY
 	ALGORITHM = RSA_2048
 </pre>
 
-### Übung 7: Login und Credentials für die DB Engine konfigurieren
+### Übung 8: Login und Credentials für die DB Engine konfigurieren
 
 Der verbleibende Teil des ersten Blocks (USE MASTER) konfiguriert den Login und die 
 Zugangsdaten für die DB Engine.
@@ -213,7 +213,7 @@ ADD CREDENTIAL Azure_EKM_TDE_cred ;
 GO
 </pre>
 
-### Übung 8: Transparente Datenbankverschlüsselung konfigurieren
+### Übung 9: Transparente Datenbankverschlüsselung konfigurieren
 
 Vor dieser Übung wird empfohlen, die AdventureWorks-Beispieldatenbank zu installieren.  
 Download unter: https://msftdbprodsamples.codeplex.com/
@@ -223,7 +223,8 @@ die nun die Verschlüsselung (TDE) für eine bestimmte Datenbank aktiviert.
 
 In dem Beispiel muss folgende Anpassung vorgenommen werden:
 
-ContosoDatabase ist auf den Namen einer existenten Datenbank zu ändern.  
+ContosoDatabase ist auf den Namen einer existenten Datenbank zu ändern. 
+(Zum Beispiel AdventureWorks2014)
 **Achtung:** Der Name muss an zwei Stellen geändert werden. 
 
 <pre>
@@ -245,7 +246,7 @@ SET ENCRYPTION ON ;
 GO
 </pre>
 
-Optional, aber interessant, fügt die folgenden Statements zur Abfrage hinzu, um zu sehen, wie schnell 
+Optional, aber interessant, die folgenden Statements zur Abfrage hinzufügen, um zu sehen, wie schnell 
 die Datenbank verschlüsselt wird. Nur den letzten Teil kann man wiederholt ausführen.
 
 Die Spalte encryption_state steht auf 2, wenn die Verschlüsselung läuft, 
@@ -269,7 +270,13 @@ Angenommen, die gesamte Übung dauert ca. 2,5h, dann berechnen sich die Kosten w
 DS3 mit SQL Server Enterprise: €1,265/Stunde --> 2,5h: €3,1625  
 Für einen ganzen Monat wären es: (~€942/Monat) 
 
-Quelle: Preisübersicht: https://azure.microsoft.com/de-de/pricing/details/virtual-machines/#Sql
+Dazu verwenden wir Premium Storage bei einer DS-VM, die bei Größe P10 aktuell mit €18,29 berechnet wird. 
+Speicher wird tagesgenau berechnet, 
+womit wir bei dem Tutorial von 2,5h innerhalb eines Tages bei ca. €0,6097 Kosten liegen.
+
+Quellen: Preisübersicht: 
+https://azure.microsoft.com/de-de/pricing/details/virtual-machines/#Sql  
+https://azure.microsoft.com/de-de/pricing/details/storage/
 
 ## Weiterführende Informationen
 
@@ -282,3 +289,5 @@ Download der Präsentation: https://doc.co/EcRw39
 [Erweiterbare Schlüsselverwaltung mit Azure Key Vault (SQL Server)](https://msdn.microsoft.com/library/azure/dn198405.aspx)
 
 [MVA-Kurs: Datenbankverschlüsselung von SQL Server 2014 mit Azure Key Vault (Stand Juni 2015)](https://www.microsoftvirtualacademy.com/de-de/training-courses/datenbankverschl-sselung-von-sql-server-2014-mit-azure-key-vault-11901?prid=ch9videolink)
+
+[CREATE ASYMMETRIC KEY (Transact-SQL)](https://msdn.microsoft.com/en-us/library/ms174430.aspx)
