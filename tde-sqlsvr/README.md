@@ -138,7 +138,7 @@ Die Beispieldateien werden standardmäßig in den folgenden Pfad installiert:
 
 Wir öffnen die Beispieldatei 'Setup Credentials.sql'.
 
-<code><pre>
+<code>
 USE master;
 CREATE CREDENTIAL sysadmin_ekm_cred 
     WITH IDENTITY = 'ContosoKeyVault', 
@@ -148,7 +148,7 @@ FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov
 -- Add the credential to the SQL Server administrators domain login 
 ALTER LOGIN [<domain>/<login>]
 ADD CREDENTIAL sysadmin_ekm_cred;
-</pre></code>
+</code>
 
 Folgende Anpassungen müssen vorgenommen werden.
 
